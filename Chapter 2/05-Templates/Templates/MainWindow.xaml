@@ -1,0 +1,45 @@
+﻿<Window
+    x:Class="Templates.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Templates"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel>
+        <Button Content="Ok" Background="Red" Width="150" Height="50">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse Height="{TemplateBinding Height}" 
+                         Width="{TemplateBinding Width}" 
+                         Fill="{TemplateBinding Background}" />
+                        <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <ListView x:Name="lstPeople" Background="Red" Width="300">
+            <ListView.Template>
+                <ControlTemplate>
+                    <Grid>
+                        <Ellipse Height="{TemplateBinding Height}" 
+                         Width="{TemplateBinding Width}" 
+                         Fill="{TemplateBinding Background}" />
+                        <ScrollViewer>
+                            <ItemsPresenter />
+                        </ScrollViewer>
+                    </Grid>
+                </ControlTemplate>
+            </ListView.Template>
+        </ListView>
+        
+        
+
+
+    </StackPanel>
+</Window>

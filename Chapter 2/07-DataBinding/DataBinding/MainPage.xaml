@@ -1,0 +1,81 @@
+﻿<Page
+    x:Class="DataBinding.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DataBinding"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <DataTemplate x:Key="YoungTemplate">
+            <Border BorderBrush="Red" BorderThickness="3">
+                <StackPanel>
+                    <TextBlock Text="{Binding Path=Name}" />
+                    <TextBlock Text="{Binding Path=Surname}" />
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="AdultTemplate">
+            <Border BorderBrush="Green" BorderThickness="3">
+                <StackPanel>
+                    <TextBlock Text="{Binding Path=Name}" />
+                    <TextBlock Text="{Binding Path=Surname}" />
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+
+        <local:PeopleTemplateSelector x:Key="PeopleTemplateSelector"
+                                        AdultTemplate="{StaticResource AdultTemplate}"
+                                        YoungTemplate="{StaticResource YoungTemplate}" />
+
+
+    </Page.Resources>
+    
+    <StackPanel Margin="24">
+        <TextBlock Text="Binding with controls" Style="{StaticResource SubheaderTextBlockStyle}" />
+
+        <!-- binding with controls -->
+        <Slider x:Name="MySlider" />
+        <TextBox Text="{Binding ElementName=MySlider, Path=Value, Mode=TwoWay}" />
+        
+        <!-- binding with C# objects -->
+
+        <TextBlock Text="Binding with C# objects" Style="{StaticResource SubheaderTextBlockStyle}" />
+        
+        <StackPanel x:Name="MyPanel" >
+            <TextBlock Text="{Binding Path=Name}" />
+            <TextBlock Text="{Binding Path=Surname}" />
+            <TextBlock Text="{Binding Path=Age}" />
+
+            <Button Content="Change name" Click="OnChangeName" />
+        </StackPanel>
+        
+        <!-- this is a DataTemplate-->
+
+        <TextBlock Text="Binding with a collection" Style="{StaticResource SubheaderTextBlockStyle}" />
+        
+        <ListView x:Name="lstPeople">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=Name}" />
+                        <TextBlock Text="{Binding Path=Surname}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- this is a collection with different templates based on the data -->
+
+        <TextBlock Text="Binding with an ItemTemplateSelector" Style="{StaticResource SubheaderTextBlockStyle}" />
+
+        <ListView ItemTemplateSelector="{StaticResource PeopleTemplateSelector}" 
+                  x:Name="lstPeopleWithSelector" />
+
+    </StackPanel>
+
+</Page>

@@ -1,0 +1,26 @@
+﻿<Window
+    x:Class="Resources.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Resources"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel>
+        <StackPanel.Resources>
+            <SolidColorBrush x:Key="RedBrush" Color="Red" />
+        </StackPanel.Resources>
+
+        <!-- this is a local resource -->
+        <TextBlock Text="Hello world!" Foreground="{StaticResource RedBrush}" />
+
+        <!-- this is a global resource -->
+        <TextBlock Text="Hello world!" Foreground="{StaticResource GreenBrush}" />
+        
+        <!-- this is a resource stored in a dictionary -->
+        <TextBlock Text="Hello world!" Foreground="{StaticResource BlueBrush}" />
+
+    </StackPanel>
+
+</Window>
