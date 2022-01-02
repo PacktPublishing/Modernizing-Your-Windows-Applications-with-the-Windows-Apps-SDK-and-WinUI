@@ -1,0 +1,47 @@
+﻿<Window
+    x:Class="Binding.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Binding"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:models="using:Binding.Models"
+    xmlns:helpers="using:Binding.Helpers"
+    xmlns:sys="using:System"
+    mc:Ignorable="d">
+
+    <StackPanel Margin="12">
+        <TextBlock Text="Standard binding" Style="{StaticResource SubheaderTextBlockStyle}" />
+
+        <TextBlock Text="{x:Bind Path=User.Name}" />
+        <TextBlock Text="{x:Bind Path=User.Surname}" />
+        <TextBlock Text="{x:Bind Path=sys:String.Format('{0:dd/MM/yyyy}', User.BirthDate)}" />
+
+        <TextBlock Text="Collections" Style="{StaticResource SubheaderTextBlockStyle}" />
+
+        <ListView x:Name="lstPeople" ItemsSource="{x:Bind People}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="models:Person">
+                    <StackPanel Background="{x:Bind helpers:BudgetColorHandler.GetBudgetColor(Budget, Stocks)}">
+                        <TextBlock Text="{x:Bind Path=Name}" />
+                        <TextBlock Text="{x:Bind Path=Surname}" />
+                        <TextBlock Text="{x:Bind Path=helpers:DateTimeHandler.ConvertToShortDate(BirthDate)}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <TextBlock Text="Collection's items binding" Style="{StaticResource SubheaderTextBlockStyle}" />
+
+        <StackPanel>
+            <TextBlock Text="{x:Bind People[0].Name}" />
+            <TextBlock Text="{x:Bind People[0].Surname}" />
+        </StackPanel>
+
+        <TextBlock Text="Event binding" Style="{StaticResource SubheaderTextBlockStyle}" />
+
+        <Button Content="Do something" Click="{x:Bind DoSomething}" />
+        
+        
+    </StackPanel>
+</Window>
