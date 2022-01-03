@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="Navigation.Pages.DetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Navigation.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <StackPanel Margin="12">
+        <TextBlock x:Name="txtName" />
+        <TextBlock x:Name="txtSurname" />
+        <TextBlock x:Name="txtBirthdate" />
+    </StackPanel>
+</Page>

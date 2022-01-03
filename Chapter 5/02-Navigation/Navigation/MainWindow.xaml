@@ -1,0 +1,31 @@
+﻿<Window
+    x:Class="Navigation.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Navigation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <NavigationView x:Name="nvgView" ItemInvoked="NavigationView_ItemInvoked" IsBackEnabled="{x:Bind ShellFrame.CanGoBack, Mode=OneWay}"
+                    BackRequested="NavigationView_BackRequested" IsSettingsVisible="True">
+        <NavigationView.MenuItems>
+            <NavigationViewItem Content="Home" Icon="Home" Tag="Home" />
+            <NavigationViewItem Content="Favorites" Icon="Favorite" Tag="Favorite"/>
+            <NavigationViewItem Content="Messages" Icon="Message" Tag="Messages">
+                <NavigationViewItem.MenuItems>
+                    <NavigationViewItem Content="Inbox" Icon="Mail" Tag="Inbox"/>
+                    <NavigationViewItem Content="Sent" Icon="MailReply" Tag="Sent"/>
+                </NavigationViewItem.MenuItems>
+            </NavigationViewItem>
+            <NavigationViewItem Content="Top menu" Icon="AlignCenter" Tag="TopMenu" />
+            <NavigationViewItem Content="List" Icon="People" Tag="List" />
+        </NavigationView.MenuItems>
+
+        <NavigationView.FooterMenuItems>
+            <NavigationViewItem Content="Change navigation mode" Icon="Admin" Tag="NavigationMode" />
+        </NavigationView.FooterMenuItems>
+
+        <Frame x:Name="ShellFrame" />
+    </NavigationView>
+</Window>
