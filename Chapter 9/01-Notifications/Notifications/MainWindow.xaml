@@ -1,0 +1,47 @@
+﻿<Window
+    x:Class="Notifications.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Notifications"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollViewer>
+        <StackPanel Margin="12">
+            <TextBlock Text="Notifications" Style="{StaticResource SubheaderTextBlockStyle}" />
+
+            <Button Content="Text notification" Click="OnSendTextNotification" />
+            <Button Content="Custom attribution and timestamp notification" Click="OnCustomNotification" />
+            <Button Content="Tagged notification" Click="OnTaggedNotification" />
+
+            <TextBlock Text="Image notifications" Style="{StaticResource SubheaderTextBlockStyle}" />
+
+            <Button Content="Image notification" Click="OnSendImageNotification" />
+            <Button Content="Hero image notification" Click="OnSendHeroImageNotification" />
+            <Button Content="Inline image notification" Click="OnSendInlineHeroImageNotification" />
+
+            <TextBlock Text="Scheduled notifications" Style="{StaticResource SubheaderTextBlockStyle}" />
+
+            <Button Content="Scheduled notification" Click="OnScheduledNotification" />
+            <Button Content="Delete scheduled notification" Click="OnDeleteScheduledNotification" />
+
+            <TextBlock Text="Interactive notifications" Style="{StaticResource SubheaderTextBlockStyle}" />
+
+            <Button Content="Interactive notification" Click="OnSendInteractiveNotification" />
+            <Button Content="Notification with buttons" Click="OnSendNotificationWithButtons" />
+            <Button Content="Notification with reply" Click="OnSendNotificationWithReply" />
+            <Button Content="Notification with dropdown" Click="OnSendNotificationWithDropdown" />
+            <Button Content="Notification with reminder" Click="OnSendNotificationWithReminder" />
+
+            <TextBlock Text="Progress Bars" Style="{StaticResource SubheaderTextBlockStyle}" />
+
+            <Button Content="Notification with progress bar" Click="OnSendNotificationWithProgressBar" />
+
+            <TextBlock Text="Badge notifications" Style="{StaticResource SubheaderTextBlockStyle}" />
+
+            <Button Content="Numeric notification" Click="OnSendBadgeNumericNotification" />
+            <Button Content="Glyph notification" Click="OnSendBadgeGlyphNotification" />
+        </StackPanel>
+    </ScrollViewer>
+</Window>
