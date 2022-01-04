@@ -1,0 +1,36 @@
+﻿<Window
+    x:Class="Files.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Files"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Margin="12">
+        <TextBlock Text="Folders" Style="{StaticResource SubheaderTextBlockStyle}" />
+        <Button Content="Get folder path" Click="OnGetFolderPath" />
+        <Button Content="Get folders" Click="OnGetFolders" />
+        <TextBlock x:Name="txtFolderPath" />
+
+        <TextBlock Text="Files" Style="{StaticResource SubheaderTextBlockStyle}" />
+        <Button Content="Get files" Click="OnGetFiles" />
+        <Button Content="Create file with IRandomAccessStream" Click="OnCreateFileRAS" />
+        <Button Content="Create file with StreamWriter" Click="OnCreateFileStreamWriter" />
+        <Button Content="Create file with FileIO" Click="OnCreateFileWithFileIO" />
+        <Button Content="Download file" Click="OnDownloadFile" />
+        <TextBlock x:Name="txtFilesPath" />
+
+        <TextBlock Text="Local storage" Style="{StaticResource SubheaderTextBlockStyle}" />
+        <Button Content="Create file in local storage" Click="OnCreateFileLocalStorage" />
+        <Button Content="Create file in local storage with helpers" Click="OnCreateFileLocalStorageWithHelpers" />
+        <Button Content="Write settings" Click="OnWriteSettings" />
+        <Button Content="Write settings with helper" Click="OnWriteSettingsWithHelper" />
+        <TextBlock x:Name="txtLocalStoragePath" />
+
+        <TextBlock Text="Pickers" Style="{StaticResource SubheaderTextBlockStyle}" />
+        <Button Content="Pick file" Click="OnPickFile" />
+        <Button Content="Save file" Click="OnSaveFile" />
+        <TextBlock x:Name="txtPickerPath" />
+    </StackPanel>
+</Window>

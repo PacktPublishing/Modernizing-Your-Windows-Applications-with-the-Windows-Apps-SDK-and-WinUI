@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>This is a test page for hybrid apps</title>
+    <script>
+        window.chrome.webview.addEventListener('message', arg => {
+            document.getElementById('coordinates').innerHTML = arg.data;
+        });
+    </script>
+</head>
+<body>
+    <h1>Communication with the native app</h1>
+    <p>Enter a city: <input type="text" id="city" /> </p>
+    <input type="button" onclick="window.chrome.webview.postMessage(document.getElementById('city').value)" value="Get coordinates" />
+
+    <h1>Communication from the native app</h1>
+    <p id="coordinates" />
+</body>
+</html>
