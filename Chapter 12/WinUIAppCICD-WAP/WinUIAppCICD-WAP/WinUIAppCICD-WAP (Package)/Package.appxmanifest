@@ -7,14 +7,14 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="bb31f905-1a21-4465-9f85-629faddd856d"
-    Publisher="CN=mpagani"
+    Name="WinUIAppCICD-WAP"
+    Publisher="CN=Matteo Pagani, O=Matteo Pagani, L=Como, S=Como, C=IT"
     Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>SampleWinUIApp</DisplayName>
-    <PublisherDisplayName>mpagani</PublisherDisplayName>
-    <Logo>Assets\StoreLogo.png</Logo>
+    <DisplayName>WinUIAppCICD-WAP (Package)</DisplayName>
+    <PublisherDisplayName>Matteo Pagani</PublisherDisplayName>
+    <Logo>Images\StoreLogo.png</Logo>
   </Properties>
 
   <Dependencies>
@@ -31,13 +31,13 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="SampleWinUIApp"
-        Description="SampleWinUIApp"
+        DisplayName="WinUIAppCICD-WAP (Package)"
+        Description="WinUIAppCICD-WAP (Package)"
         BackgroundColor="transparent"
-        Square150x150Logo="Assets\Square150x150Logo.png"
-        Square44x44Logo="Assets\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
-        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        Square150x150Logo="Images\Square150x150Logo.png"
+        Square44x44Logo="Images\Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" />
+        <uap:SplashScreen Image="Images\SplashScreen.png" />
       </uap:VisualElements>
     </Application>
   </Applications>
