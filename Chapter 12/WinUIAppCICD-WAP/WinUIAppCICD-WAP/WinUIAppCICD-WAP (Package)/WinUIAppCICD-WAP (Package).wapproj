@@ -41,6 +41,8 @@
     <AssetTargetFallback>net6.0-windows$(TargetPlatformVersion);$(AssetTargetFallback)</AssetTargetFallback>
     <DefaultLanguage>en-US</DefaultLanguage>
     <EntryPointProjectUniqueName>..\WinUIAppCICD-WAP\WinUIAppCICD-WAP.csproj</EntryPointProjectUniqueName>
+    <PackageCertificateThumbprint>CB137E67DE29FCD2A044F1E89C58DF06674101BB</PackageCertificateThumbprint>
+    <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
   </PropertyGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
