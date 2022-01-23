@@ -5,11 +5,19 @@ using Navigation.Contracts;
 
 namespace Navigation.ViewModels
 {
-    public class DetailPageViewModel: ObservableObject
+    public class DetailPageViewModel: ObservableObject, INavigationAware
     {
         private readonly INavigationService _navigationService;
 
         public RelayCommand GoBackCommand { get; set; }
+
+        private string _name;
+
+        public string Name
+        {
+            get { return _name; }
+            set { SetProperty(ref _name, value); }
+        }
 
         public DetailPageViewModel(INavigationService navigationService)
         {
@@ -19,8 +27,20 @@ namespace Navigation.ViewModels
         }
 
         public void GoBack()
-        {
+        {   
             _navigationService.GoBack();
+        }
+
+        public void OnNavigatedTo(object parameter)
+        {
+            if (parameter != null)
+            {
+                Name = parameter.ToString();
+            }
+        }
+
+        public void OnNavigatedFrom()
+        {
         }
     }
 }

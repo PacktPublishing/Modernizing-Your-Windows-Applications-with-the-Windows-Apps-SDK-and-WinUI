@@ -47,7 +47,7 @@ namespace Navigation.ViewModels
         private void SaveAction()
         {
             _databaseService.SavePerson(new Person { Name = Name, Surname = Surname });
-            _navigationService.NavigateTo(typeof(DetailPage));
+            _navigationService.NavigateTo(typeof(DetailPage), "Matteo");
         }
     }
 }

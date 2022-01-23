@@ -10,6 +10,7 @@
 
     <StackPanel>
         <TextBlock Text="This is page 2" />
+        <TextBlock Text="{x:Bind ViewModel.Name, Mode=OneWay}" />
         <Button Content="Go back" Command="{x:Bind ViewModel.GoBackCommand}" />
     </StackPanel>
 </Page>
