@@ -7,7 +7,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel>
+    <StackPanel Margin="12">
         <TextBlock Text="Name" />
         <TextBox Text="{x:Bind ViewModel.Name, Mode=TwoWay}" />
         <TextBlock Text="Surname" />

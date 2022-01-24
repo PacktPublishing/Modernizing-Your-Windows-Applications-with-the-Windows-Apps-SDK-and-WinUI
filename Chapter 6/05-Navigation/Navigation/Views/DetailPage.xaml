@@ -8,9 +8,9 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel>
-        <TextBlock Text="This is page 2" />
+    <StackPanel Margin="12">
+        <TextBlock Text="Welcome to page 2!" />
         <TextBlock Text="{x:Bind ViewModel.Name, Mode=OneWay}" />
-        <Button Content="Go back" Command="{x:Bind ViewModel.GoBackCommand}" />
+        <TextBlock Text="{x:Bind ViewModel.Surname,Mode=OneWay}" />
     </StackPanel>
 </Page>

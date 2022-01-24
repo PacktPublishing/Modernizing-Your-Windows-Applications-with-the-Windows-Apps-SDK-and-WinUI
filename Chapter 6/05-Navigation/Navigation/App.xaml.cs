@@ -40,15 +40,10 @@ namespace Navigation
               .AddTransient<DetailPageViewModel>()
               .BuildServiceProvider());
 
-            Frame shellFrame = new Frame
-            {
-                Content = new MainPage()
-            };
-
-            MainWindow.Content = shellFrame;
+            MainWindow = new MainWindow();
             MainWindow.Activate();
         }
 
-        public static Window MainWindow { get; set; } = new Window() { Title = "Navigation" };
+        public static Window MainWindow { get; set; }
     }
 }

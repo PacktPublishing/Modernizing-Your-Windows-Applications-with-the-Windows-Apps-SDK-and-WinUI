@@ -1,16 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using Messages.Views;
 using Navigation.Contracts;
+using Navigation.Models;
 
 namespace Navigation.ViewModels
 {
     public class DetailPageViewModel: ObservableObject, INavigationAware
     {
-        private readonly INavigationService _navigationService;
-
-        public RelayCommand GoBackCommand { get; set; }
-
         private string _name;
 
         public string Name
@@ -19,23 +14,21 @@ namespace Navigation.ViewModels
             set { SetProperty(ref _name, value); }
         }
 
-        public DetailPageViewModel(INavigationService navigationService)
+        private string _surname;
+
+        public string Surname
         {
-            GoBackCommand = new RelayCommand(GoBack);
-
-            _navigationService = navigationService;
-        }
-
-        public void GoBack()
-        {   
-            _navigationService.GoBack();
+            get { return _surname; }
+            set { SetProperty(ref _surname, value); }
         }
 
         public void OnNavigatedTo(object parameter)
         {
             if (parameter != null)
             {
-                Name = parameter.ToString();
+                Person person = parameter as Person;
+                Name = person.Name;
+                Surname = person.Surname;
             }
         }
 
