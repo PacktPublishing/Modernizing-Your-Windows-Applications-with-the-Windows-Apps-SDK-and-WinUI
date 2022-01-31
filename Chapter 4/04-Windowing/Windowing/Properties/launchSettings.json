@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Windowing (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Windowing (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Dispatcher (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Dispatcher (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

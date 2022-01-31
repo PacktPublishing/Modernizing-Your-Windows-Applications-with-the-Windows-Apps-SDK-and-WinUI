@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Binding (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Binding (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

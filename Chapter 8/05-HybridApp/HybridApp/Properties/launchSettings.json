@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "HybridApp (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "HybridApp (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

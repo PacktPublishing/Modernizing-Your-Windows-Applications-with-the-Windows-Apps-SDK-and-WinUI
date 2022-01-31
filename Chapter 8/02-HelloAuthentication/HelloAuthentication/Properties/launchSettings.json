@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "HelloAuthentication (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "HelloAuthentication (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

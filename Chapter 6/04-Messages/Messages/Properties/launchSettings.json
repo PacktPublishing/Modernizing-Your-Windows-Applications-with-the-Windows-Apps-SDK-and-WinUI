@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Messages (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Messages (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

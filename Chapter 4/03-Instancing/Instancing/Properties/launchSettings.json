@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Instancing (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Instancing (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

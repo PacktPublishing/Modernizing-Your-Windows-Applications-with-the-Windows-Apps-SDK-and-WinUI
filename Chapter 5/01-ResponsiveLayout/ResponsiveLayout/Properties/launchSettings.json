@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ResponsiveLayout (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ResponsiveLayout (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

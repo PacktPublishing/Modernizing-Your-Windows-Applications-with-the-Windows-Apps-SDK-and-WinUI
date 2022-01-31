@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Power (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Power (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

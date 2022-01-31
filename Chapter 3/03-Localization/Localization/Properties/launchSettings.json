@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Localization (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Localization (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

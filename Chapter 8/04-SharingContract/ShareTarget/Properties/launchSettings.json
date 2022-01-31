@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ShareTarget (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ShareTarget (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

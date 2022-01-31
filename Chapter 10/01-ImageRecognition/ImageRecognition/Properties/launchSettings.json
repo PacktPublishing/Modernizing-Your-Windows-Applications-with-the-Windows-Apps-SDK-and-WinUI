@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ImageRecognition (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ImageRecognition (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

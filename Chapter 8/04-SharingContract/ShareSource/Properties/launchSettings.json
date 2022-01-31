@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ShareSource (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ShareSource (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

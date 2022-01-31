@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "IoC (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "IoC (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

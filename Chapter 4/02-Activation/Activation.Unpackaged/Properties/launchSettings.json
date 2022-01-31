@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Activation.Unpackaged (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Activation.Unpackaged (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

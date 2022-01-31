@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PropertiesEvents (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "PropertiesEvents (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
