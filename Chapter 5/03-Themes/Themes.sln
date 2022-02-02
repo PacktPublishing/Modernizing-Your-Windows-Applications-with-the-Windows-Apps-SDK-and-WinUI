@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Themes", "Themes\Themes.csproj", "{D8272025-337E-4006-8310-1570350B7E66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Themes", "Themes\Themes.csproj", "{D8272025-337E-4006-8310-1570350B7E66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Themes.Inline", "Themes.Inline\Themes.Inline.csproj", "{033BAF24-9ADF-4FE0-9D0C-EC0BD5685802}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,24 @@ Global
 		{D8272025-337E-4006-8310-1570350B7E66}.Release|x86.ActiveCfg = Release|x86
 		{D8272025-337E-4006-8310-1570350B7E66}.Release|x86.Build.0 = Release|x86
 		{D8272025-337E-4006-8310-1570350B7E66}.Release|x86.Deploy.0 = Release|x86
+		{033BAF24-9ADF-4FE0-9D0C-EC0BD5685802}.Debug|arm64.ActiveCfg = Debug|arm64
+		{033BAF24-9ADF-4FE0-9D0C-EC0BD5685802}.Debug|arm64.Build.0 = Debug|arm64
+		{033BAF24-9ADF-4FE0-9D0C-EC0BD5685802}.Debug|arm64.Deploy.0 = Debug|arm64
+		{033BAF24-9ADF-4FE0-9D0C-EC0BD5685802}.Debug|x64.ActiveCfg = Debug|x64
+		{033BAF24-9ADF-4FE0-9D0C-EC0BD5685802}.Debug|x64.Build.0 = Debug|x64
+		{033BAF24-9ADF-4FE0-9D0C-EC0BD5685802}.Debug|x64.Deploy.0 = Debug|x64
+		{033BAF24-9ADF-4FE0-9D0C-EC0BD5685802}.Debug|x86.ActiveCfg = Debug|x86
+		{033BAF24-9ADF-4FE0-9D0C-EC0BD5685802}.Debug|x86.Build.0 = Debug|x86
+		{033BAF24-9ADF-4FE0-9D0C-EC0BD5685802}.Debug|x86.Deploy.0 = Debug|x86
+		{033BAF24-9ADF-4FE0-9D0C-EC0BD5685802}.Release|arm64.ActiveCfg = Release|arm64
+		{033BAF24-9ADF-4FE0-9D0C-EC0BD5685802}.Release|arm64.Build.0 = Release|arm64
+		{033BAF24-9ADF-4FE0-9D0C-EC0BD5685802}.Release|arm64.Deploy.0 = Release|arm64
+		{033BAF24-9ADF-4FE0-9D0C-EC0BD5685802}.Release|x64.ActiveCfg = Release|x64
+		{033BAF24-9ADF-4FE0-9D0C-EC0BD5685802}.Release|x64.Build.0 = Release|x64
+		{033BAF24-9ADF-4FE0-9D0C-EC0BD5685802}.Release|x64.Deploy.0 = Release|x64
+		{033BAF24-9ADF-4FE0-9D0C-EC0BD5685802}.Release|x86.ActiveCfg = Release|x86
+		{033BAF24-9ADF-4FE0-9D0C-EC0BD5685802}.Release|x86.Build.0 = Release|x86
+		{033BAF24-9ADF-4FE0-9D0C-EC0BD5685802}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

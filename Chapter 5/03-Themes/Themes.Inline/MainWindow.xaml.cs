@@ -1,6 +1,6 @@
 ﻿using Microsoft.UI.Xaml;
 
-namespace Themes
+namespace Themes.Inline
 {
     public sealed partial class MainWindow : Window
     {

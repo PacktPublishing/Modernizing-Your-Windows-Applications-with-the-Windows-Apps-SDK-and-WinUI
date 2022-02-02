@@ -8,5 +8,4 @@
         <Setter Property="Background" Value="Green"/>
     </Style>
 
-
 </ResourceDictionary>
