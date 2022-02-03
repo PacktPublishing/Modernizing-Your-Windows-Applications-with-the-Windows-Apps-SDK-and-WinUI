@@ -1,0 +1,71 @@
+﻿<Page
+    x:Class="ModernDesktop.Views.DetailsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ModernDesktop.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.Resources>
+            <ResourceDictionary>
+                <Style TargetType="TextBox" >
+                    <Setter Property="Margin" Value="20" />
+                </Style>
+                <Style TargetType="ComboBox" >
+                    <Setter Property="Margin" Value="20" />
+                </Style>
+                <Style TargetType="TextBlock" >
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="FontSize" Value="25"/>
+                </Style>
+                <Style TargetType="StackPanel" x:Key="Header" >
+                    <Setter Property="Padding" Value="0,40,0,20" />
+                    <Setter Property="Orientation" Value="Horizontal" />
+                </Style>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height= "*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="0.5*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="1" Style="{StaticResource Header}">
+            <TextBlock Text="Personal data" />
+            <Button Content="Delete Record" Margin="10,0,0,0" Command="{x:Bind ViewModel.DeleteCommand}"/>
+        </StackPanel>
+        <TextBox Text="{x:Bind ViewModel.SelectedEmployee.FirstName, Mode=TwoWay}" Header="First Name" Grid.Row="2" Grid.Column="1" IsReadOnly="{x:Bind ViewModel.IsExisting}" />
+        <TextBox Text="{x:Bind ViewModel.SelectedEmployee.LastName, Mode=TwoWay}" Header="Last Name" Grid.Row="2" Grid.Column="2" IsReadOnly="{x:Bind ViewModel.IsExisting}" />
+        <DatePicker Date="{x:Bind ViewModel.SelectedEmployee.DateOfBirth, Mode=TwoWay}" Header="Date of Birth" Grid.Row="2" Grid.Column="3" />
+        <ComboBox ItemsSource="{x:Bind ViewModel.GenderList}" SelectedIndex="{x:Bind ViewModel.SelectedEmployee.Gender, Mode=TwoWay, Converter={StaticResource GenderValueConverter}}" Grid.Row="3" Grid.Column="1" Header="Gender" />
+        <TextBox Text="{x:Bind ViewModel.SelectedEmployee.Address, Mode=TwoWay}" Header="Address" Grid.Row="4" Grid.Column="1" />
+        <TextBox Text="{x:Bind ViewModel.SelectedEmployee.City, Mode=TwoWay}" Header="City" Grid.Row="4" Grid.Column="2" />
+        <TextBox Text="{x:Bind ViewModel.SelectedEmployee.ZipCode, Mode=TwoWay}" Header="ZIP Code" Grid.Row="4" Grid.Column="3" />
+        <StackPanel Grid.Row="5" Grid.ColumnSpan="3" Grid.Column="1" Style="{StaticResource Header}">
+            <TextBlock Text="Company data" />
+        </StackPanel>
+        <TextBox Text="{x:Bind ViewModel.SelectedEmployee.Role, Mode=TwoWay}" Header="Role" Grid.Row="6" Grid.Column="1" />
+        <TextBox Text="{x:Bind ViewModel.SelectedEmployee.Salary, Mode=TwoWay, Converter={StaticResource DecimalToStringConverter}}"  Header="Salary" Grid.Row="6" Grid.Column="2" />
+        <DatePicker Date="{x:Bind ViewModel.SelectedEmployee.DateOfHire, Mode=TwoWay}" Header="Date of Hire" Grid.Row="6" Grid.Column="3" />
+        <StackPanel Orientation="Horizontal" Grid.Row="7" Grid.Column="3" HorizontalAlignment="Right">
+            <Button Content="Cancel" Margin="20" Command="{x:Bind ViewModel.CancelCommand}" />
+            <Button Content="Save" Margin="20" Command="{x:Bind ViewModel.UpsertCommand}" />
+        </StackPanel>
+
+    </Grid>
+</Page>

@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="ModernDesktop.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ModernDesktop.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodel="using:ModernDesktop.ViewModels"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <NavigationView x:Name="MainMenu" 
+                    PaneDisplayMode="Top" 
+                    IsBackButtonVisible="Collapsed" 
+                    Loaded="MainMenu_OnLoaded" 
+                    ItemInvoked="MainMenu_OnItemInvoked" 
+                    Background="Transparent" 
+                    IsSettingsVisible="False" 
+                    Margin="10" >
+        <NavigationView.MenuItems>
+            <NavigationViewItem  x:Name="Overview"
+                                 Icon="Home" 
+                                 Content="Overview" 
+                                 Tag="ModernDesktop.Views.OverviewPage" />
+            <NavigationViewItem x:Name="Create" 
+                                Icon="Add" 
+                                Content="Create" 
+                                Tag="ModernDesktop.Views.DetailsPage" />
+        </NavigationView.MenuItems>
+        <NavigationView.FooterMenuItems>
+            <NavigationViewItem x:Name="About" 
+                                Icon="More" 
+                                Content="About" 
+                                Tag="ModernDesktop.Views.AboutPage" />
+        </NavigationView.FooterMenuItems>
+        <NavigationView.Content>
+            <Frame x:Name="ContentFrame"/>
+        </NavigationView.Content>
+    </NavigationView>
+</Page>

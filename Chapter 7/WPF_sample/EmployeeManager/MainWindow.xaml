@@ -1,0 +1,15 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:views="clr-namespace:EmployeeManager.Views"
+    xmlns:navigation="clr-namespace:EmployeeManager.Framework.Navigation"
+    x:Class="EmployeeManager.MainWindow"
+    Title="Contoso Employee Manager" Height="350" Width="525"
+    Icon="EmployeeManager.ico"
+    AutomationProperties.AutomationId="EmployeeManagerMainWindow">
+    <Grid>
+        <navigation:NavigationContentControl x:Name="clientArea" />
+    </Grid>
+</Window>

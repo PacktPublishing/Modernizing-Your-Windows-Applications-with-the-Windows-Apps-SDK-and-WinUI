@@ -1,0 +1,62 @@
+﻿<base:ViewBase x:Class="EmployeeManager.Views.OverviewView"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:base="clr-namespace:EmployeeManager.Framework"
+               xmlns:views="clr-namespace:EmployeeManager.Views"
+               xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+               mc:Ignorable="d"
+               d:DesignHeight="300" d:DesignWidth="300"
+               AutomationProperties.AutomationId="OverviewView"
+               d:DataContext="{d:DesignInstance Type=views:OverviewViewModel, IsDesignTimeCreatable=False}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Style="{StaticResource ViewHeader}" Text="Employees" />
+
+        <DataGrid Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  ItemsSource="{Binding Employees}"
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  AutomationProperties.AutomationId="OverviewGrid"
+                  SelectedItem="{Binding SelectedEmployee, Mode=TwoWay}">
+            <DataGrid.Columns>
+                <DataGridTextColumn MinWidth="110" IsReadOnly="True" Header="First Name" Binding="{Binding FirstName}" />
+                <DataGridTextColumn MinWidth="110" IsReadOnly="True" Header="Last Name" Binding="{Binding LastName}" />
+                <DataGridTextColumn MinWidth="110" IsReadOnly="True" Header="Role" Binding="{Binding Role}" />
+                <DataGridTextColumn MinWidth="110" IsReadOnly="True" Header="Birthday"
+                                    Binding="{Binding Birthday, StringFormat=MM/dd/yyyy}" />
+                <DataGridTextColumn MinWidth="110" IsReadOnly="True" Header="Join Date"
+                                    Binding="{Binding HiringDate, StringFormat=MM/dd/yyyy}" />
+            </DataGrid.Columns>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding SelectedItem}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </DataGrid>
+        <Separator Grid.Row="2" />
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
+            <StackPanel.Resources>
+                <Style x:Key="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}" TargetType="Button">
+                    <Style.Setters>
+                        <Setter Property="Margin" Value="5" />
+                        <Setter Property="Padding" Value="15 2 15 2" />
+                    </Style.Setters>
+                </Style>
+            </StackPanel.Resources>
+
+            <Button AutomationProperties.AutomationId="AddAsyncButton"
+                    Command="{Binding AddEmployee}">
+                Add Employee
+            </Button>
+        </StackPanel>
+    </Grid>
+</base:ViewBase>

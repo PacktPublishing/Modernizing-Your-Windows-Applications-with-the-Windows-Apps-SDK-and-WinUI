@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ModernDesktop (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ModernDesktop (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

@@ -1,0 +1,70 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                    xmlns:navigation="clr-namespace:EmployeeManager.Framework.Navigation">
+    <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="0,2,40,2" />
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="Red"
+                                   Margin="4 0 2 0">
+                            !
+                        </TextBlock>
+                        <AdornedElementPlaceholder x:Name="elem" Grid.Column="1" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="true">
+                <Setter Property="ToolTip"
+                        Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors).CurrentItem.ErrorContent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="{x:Type DatePicker}" TargetType="DatePicker">
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="true">
+                <Setter Property="ToolTip"
+                        Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors).CurrentItem.ErrorContent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <ControlTemplate x:Key="ViewContentControlTemplate" TargetType="navigation:NavigationContentControl">
+        <Grid Focusable="False">
+            <ContentPresenter Focusable="False"/>
+            <Grid x:Name="PART_BusyIndicator"
+                  Focusable="False"
+                  Background="#33333320">
+                <controls:ProgressRing
+                    Focusable="False"
+                    IsActive="True"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Margin="20 0 20 0"
+                    Height="20" />
+            </Grid>
+        </Grid>
+    </ControlTemplate>
+
+    <Style x:Key="{x:Type navigation:NavigationContentControl}" TargetType="navigation:NavigationContentControl">
+        <Setter Property="Template" Value="{StaticResource ViewContentControlTemplate}" />
+    </Style>
+
+    <Style x:Key="ViewHeader" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource AccentColorBrush}" />
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="Margin" Value="10 15 10 10" />
+    </Style>
+</ResourceDictionary>
