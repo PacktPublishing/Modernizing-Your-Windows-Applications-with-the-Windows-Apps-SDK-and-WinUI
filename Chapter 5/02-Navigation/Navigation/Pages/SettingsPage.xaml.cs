@@ -21,27 +21,11 @@ namespace Navigation.Pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class TopMenuPage : Page
+    public sealed partial class SettingsPage : Page
     {
-        public TopMenuPage()
+        public SettingsPage()
         {
             this.InitializeComponent();
-        }
-
-        private void OnMenuItemSelected(object sender, RoutedEventArgs e)
-        {
-            if (sender is MenuFlyoutItem menuItem)
-            {
-                switch (menuItem.Tag)
-                {
-                    case "Save":
-                        //code to save the file
-                        break;
-                    case "Close":
-                        //code to close the file
-                        break;
-                }
-            }
         }
     }
 }

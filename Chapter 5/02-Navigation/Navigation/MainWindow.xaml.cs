@@ -28,6 +28,7 @@ namespace Navigation
         {
             this.InitializeComponent();
             App.ShellFrame = ShellFrame;
+            ShellFrame.Content = new HomePage();
         }
 
 
@@ -52,6 +53,11 @@ namespace Navigation
                 case "TopMenu":
                     ShellFrame.Navigate(typeof(TopMenuPage));
                     break;
+            }
+
+            if (args.IsSettingsInvoked)
+            {
+                ShellFrame.Navigate(typeof(SettingsPage));
             }
         }
 

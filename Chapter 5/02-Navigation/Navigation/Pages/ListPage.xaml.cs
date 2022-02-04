@@ -23,8 +23,8 @@ namespace Navigation.Pages
 
         private void lstPeople_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Person selectedPerson = e.ClickedItem as Person;
-            App.ShellFrame.Navigate(typeof(DetailPage), selectedPerson, new DrillInNavigationTransitionInfo());
+Person selectedPerson = e.ClickedItem as Person;
+App.ShellFrame.Navigate(typeof(DetailPage), selectedPerson, new DrillInNavigationTransitionInfo());
         }
     }
 }

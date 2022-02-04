@@ -11,8 +11,10 @@
     xmlns:animations="using:CommunityToolkit.WinUI.UI.Animations" 
     xmlns:media="using:CommunityToolkit.WinUI.UI.Media" 
     xmlns:models="using:Animations.Models"
+    xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
     <ScrollViewer>
         <StackPanel Margin="12">
             <!-- animations with code -->
@@ -85,8 +87,7 @@
             <TextBlock Text="Animations with effects" Style="{StaticResource SubheaderTextBlockStyle}" />
 
             <Image Width="400" Source="../Assets/MicrosoftLogo.png" 
-                   HorizontalAlignment="Left"
-                   animations:Connected.Key="item">
+                   HorizontalAlignment="Left">
                 <interactivity:Interaction.Behaviors>
                     <core:EventTriggerBehavior EventName="Tapped">
                         <behaviors:StartAnimationAction Animation="{x:Bind MyAnimationSet}" />
@@ -96,6 +97,8 @@
                 <media:UIElementExtensions.VisualFactory>
                     <media:PipelineVisualFactory Source="{media:BackdropSource}">
                         <media:BlurEffect x:Name="ImageBlurEffect" Amount="32" IsAnimatable="True"/>
+                        <media:SepiaEffect Intensity="15" />
+                        <media:GrayscaleEffect />
                     </media:PipelineVisualFactory>
                 </media:UIElementExtensions.VisualFactory>
 
@@ -109,6 +112,10 @@
 
             <!-- connected animations -->
             <TextBlock Text="Connected animations" Style="{StaticResource SubheaderTextBlockStyle}" />
+
+            <Image Width="400" Source="../Assets/MicrosoftLogo.png" 
+                   HorizontalAlignment="Left"
+                   animations:Connected.Key="item" />
 
             <Button Content="Go to detail page" Click="OnGoToSecondPage" />
 
@@ -128,6 +135,19 @@
                 </GridView.ItemTemplate>
             </GridView>
 
+            <!-- animated icon -->
+            <TextBlock Text="Animated icons" Style="{StaticResource SubheaderTextBlockStyle}" />
+
+            <Button Width="100" Height="100">
+                <AnimatedIcon>
+                    <AnimatedIcon.Source>
+                        <animatedvisuals:AnimatedBackVisualSource />
+                    </AnimatedIcon.Source>
+                    <AnimatedIcon.FallbackIconSource>
+                        <SymbolIconSource Symbol="Back"/>
+                    </AnimatedIcon.FallbackIconSource>
+                </AnimatedIcon>
+            </Button>
 
         </StackPanel>
     </ScrollViewer>

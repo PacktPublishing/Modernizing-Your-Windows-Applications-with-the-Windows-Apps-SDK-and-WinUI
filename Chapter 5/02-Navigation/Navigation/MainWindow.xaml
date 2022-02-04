@@ -23,6 +23,8 @@
         </NavigationView.MenuItems>
 
         <NavigationView.FooterMenuItems>
+            <NavigationViewItem Content="Support" Icon="Help" Tag="Support" />
+            <NavigationViewItem Content="Account" Icon="Account" Tag="Account" />
             <NavigationViewItem Content="Change navigation mode" Icon="Admin" Tag="NavigationMode" />
         </NavigationView.FooterMenuItems>
 

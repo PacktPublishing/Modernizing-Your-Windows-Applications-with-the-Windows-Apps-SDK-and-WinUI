@@ -23,8 +23,8 @@
                             <MenuFlyoutItem Text="New project" />
                         </MenuFlyoutSubItem>
 
-                        <MenuFlyoutItem Text="Save" />
-                        <MenuFlyoutItem Text="Close" />
+                        <MenuFlyoutItem Text="Save" Click="OnMenuItemSelected" />
+                        <MenuFlyoutItem Text="Close" Click="OnMenuItemSelected" />
                         <MenuFlyoutSeparator />
                         <ToggleMenuFlyoutItem Text="Auto save" />
                     </MenuBarItem.Items>

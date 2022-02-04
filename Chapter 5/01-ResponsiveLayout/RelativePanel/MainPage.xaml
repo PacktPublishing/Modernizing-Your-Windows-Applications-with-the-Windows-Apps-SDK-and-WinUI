@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="RelativePanel.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RelativePanel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <Style x:Key="InfoCardStyle" TargetType="StackPanel">
+            <Setter Property="Margin" Value="12" />
+        </Style>
+    </Page.Resources>
+    
+    <RelativePanel>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="SmallWindow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="InfoCard2.(RelativePanel.Below)" Value="InfoCard1"/>
+                        <Setter Target="InfoCard2.(RelativePanel.AlignLeftWith)" Value="InfoCard1" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="LargeWindow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
+        <StackPanel x:Name="InfoCard1" Style="{StaticResource InfoCardStyle}">
+            <TextBlock Text="Customers" FontSize="28" />
+            <controls:DataGrid x:Name="dgCustomers" />
+        </StackPanel>
+        <StackPanel x:Name="InfoCard2" Style="{StaticResource InfoCardStyle}" RelativePanel.RightOf="InfoCard1">
+            <TextBlock Text="Orders" FontSize="28" />
+            <controls:DataGrid x:Name="dgOrders" />
+        </StackPanel>
+    </RelativePanel>
+
+</Page>
