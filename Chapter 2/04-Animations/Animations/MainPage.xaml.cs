@@ -7,6 +7,7 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -31,6 +32,12 @@ namespace Animations
         private void OnTriggerLinearAnimation(object sender, RoutedEventArgs e)
         {
             EllipseAnimation.Begin();
+            EllipseAnimation.Completed += EllipseAnimation_Completed;
+        }
+
+        private void EllipseAnimation_Completed(object sender, object e)
+        {
+            Debug.WriteLine("Animation completed");
         }
 
         private void OnTriggerKeyFrameAnimation(object sender, RoutedEventArgs e)
