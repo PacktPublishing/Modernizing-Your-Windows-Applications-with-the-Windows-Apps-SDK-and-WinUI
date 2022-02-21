@@ -62,23 +62,23 @@ namespace ImageRecognition
             filePicker.FileTypeFilter.Add("*");
             var file = await filePicker.PickSingleFileAsync();
 
-            using (IRandomAccessStream stream = await file.OpenAsync(FileAccessMode.Read))
+            using (IRandomAccessStream accessStream = await file.OpenAsync(FileAccessMode.Read))
             {
                 // Create the decoder from the stream 
-                BitmapDecoder decoder = await BitmapDecoder.CreateAsync(stream);
+                BitmapDecoder decoder = await BitmapDecoder.CreateAsync(accessStream);
 
                 // Get the SoftwareBitmap representation of the file in BGRA8 format
                 softwareBitmap = await decoder.GetSoftwareBitmapAsync();
                 softwareBitmap = SoftwareBitmap.Convert(softwareBitmap, BitmapPixelFormat.Bgra8, BitmapAlphaMode.Premultiplied);
 
                 BitmapImage preview = new BitmapImage();
-                await preview.SetSourceAsync(stream);
+                await preview.SetSourceAsync(accessStream);
                 imgPreview.Source = preview;
             }
 
             // Encapsulate the image in the WinML image type (VideoFrame) to be bound and evaluated
-            VideoFrame inputImage = VideoFrame.CreateWithSoftwareBitmap(softwareBitmap);
-            ImageFeatureValue image = ImageFeatureValue.CreateFromVideoFrame(inputImage);
+            VideoFrame input = VideoFrame.CreateWithSoftwareBitmap(softwareBitmap);
+            ImageFeatureValue image = ImageFeatureValue.CreateFromVideoFrame(input);
 
             return image;
         }
