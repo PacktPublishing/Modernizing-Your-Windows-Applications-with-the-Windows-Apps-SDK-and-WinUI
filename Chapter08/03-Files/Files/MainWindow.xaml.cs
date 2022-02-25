@@ -66,13 +66,19 @@ namespace Files
             txtFilesPath.Text = filesPaths.ToString();
         }
 
+        private async void OnGetFileFromPath(object sender, RoutedEventArgs e)
+        {
+            var path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string filePath = $@"{ path}\MyFile.txt";
+            StorageFile file = await StorageFile.GetFileFromPathAsync(filePath);
+        }
+
         private async void OnCreateFileRAS(object sender, RoutedEventArgs e)
         {
             var path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             var folder = await StorageFolder.GetFolderFromPathAsync(path);
 
             StorageFile file = await folder.CreateFileAsync("file.txt", CreationCollisionOption.ReplaceExisting);
-            
 
             IRandomAccessStream randomAccessStream = await file.OpenAsync(FileAccessMode.ReadWrite);
 
@@ -117,9 +123,13 @@ namespace Files
         {
             var path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             var folder = await StorageFolder.GetFolderFromPathAsync(path);
-            StorageFile file = await folder.CreateFileAsync("image.jpg", CreationCollisionOption.ReplaceExisting);
-            await StreamHelper.GetHttpStreamToStorageFileAsync(new Uri("https://www.packtpub.com/media/logo/stores/1/logo.png"), file);
-            txtFilesPath.Text = file.Path;
+            bool isExisting = await folder.FileExistsAsync("image.jpg");
+            if (!isExisting)
+            {
+                StorageFile file = await folder.CreateFileAsync("image.jpg", CreationCollisionOption.ReplaceExisting);
+                await StreamHelper.GetHttpStreamToStorageFileAsync(new Uri("https://www.packtpub.com/media/logo/stores/1/logo.png"), file);
+                txtFilesPath.Text = file.Path;
+            }
         }
 
         private async void OnCreateFileLocalStorage(object sender, RoutedEventArgs e)
@@ -132,6 +142,8 @@ namespace Files
         private async void OnCreateFileLocalStorageWithHelpers(object sender, RoutedEventArgs e)
         {
             var file = await StorageFileHelper.WriteTextToLocalFileAsync("Hello world", "file.txt", CreationCollisionOption.ReplaceExisting);
+            await StorageFileHelper.WriteTextToLocalCacheFileAsync("Hello world", "file.txt", CreationCollisionOption.ReplaceExisting);
+
             txtLocalStoragePath.Text = file.Path;
         }
 
@@ -162,7 +174,10 @@ namespace Files
 
             filePicker.FileTypeFilter.Add("*");
             StorageFile file = await filePicker.PickSingleFileAsync();
-            txtPickerPath.Text = file.Path;
+            if (file != null)
+            {
+                txtPickerPath.Text = file.Path;
+            }
         }
 
         private async void OnSaveFile(object sender, RoutedEventArgs e)
@@ -177,8 +192,26 @@ namespace Files
             filePicker.FileTypeChoices.Add("Text", new List<string>() { ".txt" });
             StorageFile file = await filePicker.PickSaveFileAsync();
 
-            await FileIO.WriteTextAsync(file, "Hello world");
-            txtPickerPath.Text = file.Path;
+            if (file != null)
+            {
+                await FileIO.WriteTextAsync(file, "Hello world");
+                txtPickerPath.Text = file.Path;
+            }
+        }
+
+        private async void OnPickFolder(object sender, RoutedEventArgs e)
+        {
+            var folderPicker = new FolderPicker();
+
+            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+            WinRT.Interop.InitializeWithWindow.Initialize(folderPicker, hwnd);
+
+            StorageFolder folder = await folderPicker.PickSingleFolderAsync();
+
+            if (folder != null)
+            {
+                txtPickerPath.Text = folder.Path;
+            }
         }
     }
 }

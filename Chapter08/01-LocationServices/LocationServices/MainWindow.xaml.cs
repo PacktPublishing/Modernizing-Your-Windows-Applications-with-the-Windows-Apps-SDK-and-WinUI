@@ -26,5 +26,20 @@ namespace LocationServices
                 txtLocation.Text = result.Locations[0].DisplayName;
             }
         }
+
+        private void OnGetPositionChanges(object sender, RoutedEventArgs e)
+        {
+            Geolocator geolocator = new Geolocator();
+            if (geolocator.LocationStatus != PositionStatus.Disabled && geolocator.LocationStatus != PositionStatus.NotAvailable)
+            {
+                geolocator.PositionChanged += Geolocator_PositionChanged;
+            }
+        }
+
+        private void Geolocator_PositionChanged(Geolocator sender, PositionChangedEventArgs args)
+        {
+            Console.WriteLine($"{args.Position.Coordinate.Latitude} - { args.Position.Coordinate.Longitude}");
+        }
+
     }
 }

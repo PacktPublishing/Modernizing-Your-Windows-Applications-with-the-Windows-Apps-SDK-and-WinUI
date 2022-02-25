@@ -38,5 +38,26 @@ namespace HybridApp.Pages
             await MyWebView.EnsureCoreWebView2Async();
             MyWebView.CoreWebView2.PostWebMessageAsString(message);
         }
+
+        private async void OnNavigateUrl(object sender, RoutedEventArgs e)
+        {
+            await MyWebView.EnsureCoreWebView2Async();
+            MyWebView.CoreWebView2.Navigate("http://www.packtpub.com");
+        }
+
+        private async void OnNavigateString(object sender, RoutedEventArgs e)
+        {
+            await MyWebView.EnsureCoreWebView2Async();
+            MyWebView.CoreWebView2.NavigateToString("<p>Hello world! </p>");
+        }
+
+        private void MyWebView_NavigationStarting(WebView2 sender, CoreWebView2NavigationStartingEventArgs args)
+        {
+            if (args.Uri == "https://www.microsoft.com")
+            {
+                args.Cancel = true;
+                Console.WriteLine("This website is blocked!");
+            }
+        }
     }
 }

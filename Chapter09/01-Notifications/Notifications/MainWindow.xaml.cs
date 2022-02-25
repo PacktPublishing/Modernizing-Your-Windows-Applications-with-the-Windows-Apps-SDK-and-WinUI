@@ -142,7 +142,6 @@ namespace Notifications
                     .AddArgument("messageId", "1983")
                     .SetTextBoxId("reply"))
                 .Show();
-
         }
 
         private void OnSendNotificationWithDropdown(object sender, RoutedEventArgs e)

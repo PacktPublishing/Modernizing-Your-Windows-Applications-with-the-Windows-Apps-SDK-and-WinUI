@@ -10,6 +10,7 @@
     <StackPanel Margin="12">
         <TextBlock Text="Location services" Style="{StaticResource SubheaderTextBlockStyle}" />
         <Button Click="OnGetPosition" Content="Get position" />
+        <Button Click="OnGetPositionChanges" Content="Subscribe to position changes" />
         <TextBlock x:Name="txtPosition" />
         <TextBlock x:Name="txtLocation" />
     </StackPanel>
