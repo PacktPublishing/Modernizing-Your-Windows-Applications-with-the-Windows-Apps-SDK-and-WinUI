@@ -1,8 +1,9 @@
-﻿using WinForms_Desktop.Model;
+﻿using System.Data.Entity;
+using WinForms_Desktop.Model;
 
 namespace WinForms_Desktop.Data
 {
-    public class InitialSeed : System.Data.Entity.DropCreateDatabaseIfModelChanges<EmployeeContext>
+    public class InitialSeed : CreateDatabaseIfNotExists<EmployeeContext>
     {
         protected override void Seed(EmployeeContext context)
         {

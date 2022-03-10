@@ -1,15 +1,15 @@
 ﻿using System;
 using Bogus;
-using UWP_Desktop.Models;
+using ModernDesktop.Model;
 
-namespace UWP_Desktop.Data
+namespace ModernDesktop.Data
 {
     public class EmployeeFaker : Faker<Employee>
     {
-        private int employeeId = 0;
+        //private int employeeId = 1;
         public EmployeeFaker(string locale = "de") : base(locale)
         {
-            RuleFor(e => e.Id, f => employeeId++);
+            //RuleFor(e => e.Id, employeeId++);
             RuleFor(e => e.Gender, f => f.PickRandom<Gender>());
             RuleFor(e => e.FirstName, f => f.Name.FirstName());
             RuleFor(e => e.LastName, f => f.Name.LastName());

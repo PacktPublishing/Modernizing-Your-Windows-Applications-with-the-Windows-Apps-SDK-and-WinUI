@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinForms_Desktop.Data;
 using WinForms_Desktop.Model;
@@ -61,8 +62,13 @@ namespace WinForms_Desktop
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            employeesTableAdapter.Fill(employeesDataSet.Employees);
+            //making sure the database is already created
+            while (!context.Database.Exists())
+            {
+                Task.Delay(2000);
+            }
 
+            employeesTableAdapter.Fill(employeesDataSet.Employees);
         }
 
         private async void employeeDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)

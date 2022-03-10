@@ -15,7 +15,12 @@ namespace ModernDesktop.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            var id = 1;
+            foreach (var employee in InitialSeed.Seed("en", 25))
+            {
+                employee.Id = id++;
+                modelBuilder.Entity<Employee>().HasData(employee);
+            }
         }
 
         internal DbSet<Employee> Employees { get; set; }

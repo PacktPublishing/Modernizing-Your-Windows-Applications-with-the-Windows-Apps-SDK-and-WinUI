@@ -6,7 +6,10 @@ namespace WinForms_Desktop.Data
     public class EmployeeContext : DbContext
     {
         public DbSet<Employee> Employees { get; set; }
-        public EmployeeContext() : base(nameof(EmployeeContext)) { }
+        public EmployeeContext() : base(nameof(EmployeeContext))
+        {
+            Database.SetInitializer<EmployeeContext>(new InitialSeed());
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

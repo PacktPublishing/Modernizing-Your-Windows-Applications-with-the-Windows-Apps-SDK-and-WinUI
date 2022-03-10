@@ -9,8 +9,10 @@ using ModernDesktop.Services;
 using ModernDesktop.ViewModels;
 using ModernDesktop.Views;
 using System;
+using Windows.ApplicationModel.Activation;
 using Microsoft.Windows.System.Power;
 using CommunityToolkit.Mvvm.DependencyInjection;
+using Microsoft.Windows.AppLifecycle;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -52,9 +54,9 @@ namespace ModernDesktop
                 .Build();
 
             services.AddDbContext<EmployeeContext>(options =>
-                options.UseSqlServer(config.GetConnectionString("EmployeeContext")));
+                options.UseInMemoryDatabase("employees"));
             services.AddSingleton<INavigationService, NavigationService>();
-            services.AddSingleton<IDataService, SqlDataService>();
+            services.AddSingleton<IDataService, EFDataService>();
             services.AddTransient<IDialogService, DialogService>();
             services.AddTransient<OverviewViewModel>();
             services.AddTransient<DetailsViewModel>();
@@ -65,12 +67,12 @@ namespace ModernDesktop
 
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            var eventArgs = AppInstance.GetCurrent().GetActivatedEventArgs();
-            if (eventArgs.Kind == ExtendedActivationKind.File)
-            {
-                var fileActivationArguments = eventArgs.Data as FileActivatedEventArgs;
-                m_window.FilePath = fileActivationArguments.Files[0].Path;
-            }
+            //var eventArgs = AppInstance.GetCurrent().GetActivatedEventArgs();
+            //if (eventArgs.Kind == ExtendedActivationKind.File)
+            //{
+            //    var fileActivationArguments = eventArgs.Data as FileActivatedEventArgs;
+            //    MainWindow.FilePath = fileActivationArguments.Files[0].Path;
+            //}
 
 
             var shellFrame = new Frame

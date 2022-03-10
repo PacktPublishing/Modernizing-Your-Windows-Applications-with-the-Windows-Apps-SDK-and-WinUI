@@ -11,13 +11,14 @@ using ModernDesktop.Model;
 
 namespace ModernDesktop.Services
 {
-    public class SqlDataService : IDataService
+    public class EFDataService : IDataService
     {
         private readonly EmployeeContext context;
 
-        public SqlDataService(EmployeeContext dbContext)
+        public EFDataService(EmployeeContext dbContext)
         {
             this.context = dbContext;
+            this.context.Database.EnsureCreated();
         }
 
         public IEnumerable<Employee> GetAll()

@@ -16,6 +16,7 @@ namespace UWP_Desktop.Services
         public EFDataService(EmployeeContext dbContext)
         {
             this.context = dbContext;
+            this.context.Database.EnsureCreated();
         }
 
         public IEnumerable<Employee> GetAll()

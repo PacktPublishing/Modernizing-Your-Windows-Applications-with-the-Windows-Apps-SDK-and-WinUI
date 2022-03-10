@@ -16,13 +16,14 @@ namespace ModernDesktop.ViewModels
         public IRelayCommand LoadCommand { get; private set; }
         public IRelayCommand<Employee> SelectCommand { get; private set; }
 
-        private ObservableCollection<Employee> _employees;
+        public ObservableCollection<Employee> Employees { get; } = new ObservableCollection<Employee>();
 
-        public ObservableCollection<Employee> Employees
-        {
-            get => _employees;
-            set { SetProperty(ref _employees, value); }
-        }
+        //private ObservableCollection<Employee> _employees;
+        //public ObservableCollection<Employee> Employees
+        //{
+        //    get => _employees;
+        //    set { SetProperty(ref _employees, value); }
+        //}
 
         public OverviewViewModel(IDataService dataService, INavigationService navigationService)
         {
