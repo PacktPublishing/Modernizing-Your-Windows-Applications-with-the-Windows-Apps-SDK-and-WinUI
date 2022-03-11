@@ -8,7 +8,7 @@ namespace WinForms_Desktop.Model
         private int employeeId = 0;
         public EmployeeFaker(string locale = "de") : base(locale)
         {
-            RuleFor(e => e.Id, employeeId++);
+            RuleFor(e => e.Id, f => employeeId++);
             RuleFor(e => e.Gender, f => f.PickRandom<Gender>());
             RuleFor(e => e.FirstName, f => f.Name.FirstName());
             RuleFor(e => e.LastName, f => f.Name.LastName());

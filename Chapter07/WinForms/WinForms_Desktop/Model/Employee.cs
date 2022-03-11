@@ -4,6 +4,10 @@ namespace WinForms_Desktop.Model
 {
     public class Employee
     {
+        public Employee()
+        {
+            Id = -1;
+        }
         public int Id { get; set; }
         public Gender Gender { get; set; }
         public string FirstName { get; set; }

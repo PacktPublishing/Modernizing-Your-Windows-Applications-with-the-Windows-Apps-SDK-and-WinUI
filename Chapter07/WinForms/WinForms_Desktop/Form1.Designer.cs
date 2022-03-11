@@ -29,26 +29,11 @@ namespace WinForms_Desktop
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.employeeDataGridView = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zipCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isMarriedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.salaryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateOfHireDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.employeesDataSet = new WinForms_Desktop.EmployeesDataSet();
-            this.employeesTableAdapter = new WinForms_Desktop.EmployeesDataSetTableAdapters.EmployeesTableAdapter();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_cancel = new System.Windows.Forms.Button();
+            this.btn_save = new System.Windows.Forms.Button();
             this.tbl_zip = new WinForms_Desktop.Controls.TextBox_Label();
             this.tbl_city = new WinForms_Desktop.Controls.TextBox_Label();
             this.tbl_address = new WinForms_Desktop.Controls.TextBox_Label();
@@ -64,146 +49,12 @@ namespace WinForms_Desktop
             this.Gender = new System.Windows.Forms.Label();
             this.cb_gender = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.employeeContextBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btn_save = new System.Windows.Forms.Button();
-            this.btn_cancel = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeesDataSet)).BeginInit();
+            this.DGV_Employees = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeContextBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Employees)).BeginInit();
             this.SuspendLayout();
-            // 
-            // employeeDataGridView
-            // 
-            this.employeeDataGridView.AllowUserToAddRows = false;
-            this.employeeDataGridView.AllowUserToDeleteRows = false;
-            this.employeeDataGridView.AllowUserToOrderColumns = true;
-            this.employeeDataGridView.AutoGenerateColumns = false;
-            this.employeeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.employeeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.genderDataGridViewTextBoxColumn,
-            this.firstNameDataGridViewTextBoxColumn,
-            this.lastNameDataGridViewTextBoxColumn,
-            this.dateOfBirthDataGridViewTextBoxColumn,
-            this.roleDataGridViewTextBoxColumn,
-            this.addressDataGridViewTextBoxColumn,
-            this.zipCodeDataGridViewTextBoxColumn,
-            this.cityDataGridViewTextBoxColumn,
-            this.isMarriedDataGridViewCheckBoxColumn,
-            this.salaryDataGridViewTextBoxColumn,
-            this.dateOfHireDataGridViewTextBoxColumn});
-            this.employeeDataGridView.DataSource = this.employeesBindingSource;
-            this.employeeDataGridView.Location = new System.Drawing.Point(6, 3);
-            this.employeeDataGridView.Name = "employeeDataGridView";
-            this.employeeDataGridView.ReadOnly = true;
-            this.employeeDataGridView.Size = new System.Drawing.Size(756, 391);
-            this.employeeDataGridView.TabIndex = 1;
-            this.employeeDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeDataGridView_CellClick);
-            this.employeeDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.employeeDataGridView_CellFormatting);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // genderDataGridViewTextBoxColumn
-            // 
-            this.genderDataGridViewTextBoxColumn.DataPropertyName = "Gender";
-            this.genderDataGridViewTextBoxColumn.HeaderText = "Gender";
-            this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
-            this.genderDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateOfBirthDataGridViewTextBoxColumn
-            // 
-            this.dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
-            this.dateOfBirthDataGridViewTextBoxColumn.HeaderText = "DateOfBirth";
-            this.dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
-            this.dateOfBirthDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // roleDataGridViewTextBoxColumn
-            // 
-            this.roleDataGridViewTextBoxColumn.DataPropertyName = "Role";
-            this.roleDataGridViewTextBoxColumn.HeaderText = "Role";
-            this.roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
-            this.roleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // zipCodeDataGridViewTextBoxColumn
-            // 
-            this.zipCodeDataGridViewTextBoxColumn.DataPropertyName = "ZipCode";
-            this.zipCodeDataGridViewTextBoxColumn.HeaderText = "ZipCode";
-            this.zipCodeDataGridViewTextBoxColumn.Name = "zipCodeDataGridViewTextBoxColumn";
-            this.zipCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cityDataGridViewTextBoxColumn
-            // 
-            this.cityDataGridViewTextBoxColumn.DataPropertyName = "City";
-            this.cityDataGridViewTextBoxColumn.HeaderText = "City";
-            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
-            this.cityDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // isMarriedDataGridViewCheckBoxColumn
-            // 
-            this.isMarriedDataGridViewCheckBoxColumn.DataPropertyName = "IsMarried";
-            this.isMarriedDataGridViewCheckBoxColumn.HeaderText = "IsMarried";
-            this.isMarriedDataGridViewCheckBoxColumn.Name = "isMarriedDataGridViewCheckBoxColumn";
-            this.isMarriedDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // salaryDataGridViewTextBoxColumn
-            // 
-            this.salaryDataGridViewTextBoxColumn.DataPropertyName = "Salary";
-            this.salaryDataGridViewTextBoxColumn.HeaderText = "Salary";
-            this.salaryDataGridViewTextBoxColumn.Name = "salaryDataGridViewTextBoxColumn";
-            this.salaryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateOfHireDataGridViewTextBoxColumn
-            // 
-            this.dateOfHireDataGridViewTextBoxColumn.DataPropertyName = "DateOfHire";
-            this.dateOfHireDataGridViewTextBoxColumn.HeaderText = "DateOfHire";
-            this.dateOfHireDataGridViewTextBoxColumn.Name = "dateOfHireDataGridViewTextBoxColumn";
-            this.dateOfHireDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // employeesBindingSource
-            // 
-            this.employeesBindingSource.DataMember = "Employees";
-            this.employeesBindingSource.DataSource = this.employeesDataSet;
-            // 
-            // employeesDataSet
-            // 
-            this.employeesDataSet.DataSetName = "EmployeesDataSet";
-            this.employeesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // employeesTableAdapter
-            // 
-            this.employeesTableAdapter.ClearBeforeFill = true;
             // 
             // tabControl1
             // 
@@ -217,7 +68,7 @@ namespace WinForms_Desktop
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.employeeDataGridView);
+            this.tabPage1.Controls.Add(this.DGV_Employees);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -252,6 +103,26 @@ namespace WinForms_Desktop
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Item";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.Location = new System.Drawing.Point(611, 355);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(75, 23);
+            this.btn_cancel.TabIndex = 2012;
+            this.btn_cancel.Text = "Reset Changes";
+            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            // 
+            // btn_save
+            // 
+            this.btn_save.Location = new System.Drawing.Point(516, 355);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(75, 23);
+            this.btn_save.TabIndex = 2011;
+            this.btn_save.Text = "Save";
+            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // tbl_zip
             // 
@@ -389,34 +260,19 @@ namespace WinForms_Desktop
             this.label1.TabIndex = 0;
             this.label1.Text = "Employee details";
             // 
-            // employeeContextBindingSource
+            // DGV_Employees
             // 
-            this.employeeContextBindingSource.DataSource = typeof(WinForms_Desktop.Data.EmployeeContext);
-            this.employeeContextBindingSource.CurrentChanged += new System.EventHandler(this.employeeContextBindingSource_CurrentChanged);
-            // 
-            // employeeBindingSource
-            // 
-            this.employeeBindingSource.DataSource = typeof(WinForms_Desktop.Model.Employee);
-            // 
-            // btn_save
-            // 
-            this.btn_save.Location = new System.Drawing.Point(516, 355);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(75, 23);
-            this.btn_save.TabIndex = 2011;
-            this.btn_save.Text = "Save";
-            this.btn_save.UseVisualStyleBackColor = true;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
-            // 
-            // btn_cancel
-            // 
-            this.btn_cancel.Location = new System.Drawing.Point(611, 355);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(75, 23);
-            this.btn_cancel.TabIndex = 2012;
-            this.btn_cancel.Text = "Reset Changes";
-            this.btn_cancel.UseVisualStyleBackColor = true;
-            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            this.DGV_Employees.AllowUserToAddRows = false;
+            this.DGV_Employees.AllowUserToDeleteRows = false;
+            this.DGV_Employees.AllowUserToOrderColumns = true;
+            this.DGV_Employees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Employees.Location = new System.Drawing.Point(3, 3);
+            this.DGV_Employees.Name = "DGV_Employees";
+            this.DGV_Employees.ReadOnly = true;
+            this.DGV_Employees.Size = new System.Drawing.Size(762, 391);
+            this.DGV_Employees.TabIndex = 0;
+            this.DGV_Employees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeDataGridView_CellClick);
+            this.DGV_Employees.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.employeeDataGridView_CellFormatting);
             // 
             // Form1
             // 
@@ -427,39 +283,18 @@ namespace WinForms_Desktop
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeesDataSet)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeContextBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Employees)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.BindingSource employeeContextBindingSource;
-        private System.Windows.Forms.BindingSource employeeBindingSource;
-        private System.Windows.Forms.DataGridView employeeDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateOfBirthDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn roleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zipCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn isMarriedDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn salaryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateOfHireDataGridViewTextBoxColumn;
-        private EmployeesDataSet employeesDataSet;
-        private System.Windows.Forms.BindingSource employeesBindingSource;
-        private EmployeesDataSetTableAdapters.EmployeesTableAdapter employeesTableAdapter;
+
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -480,6 +315,7 @@ namespace WinForms_Desktop
         private Controls.TextBox_Label tbl_address;
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.DataGridView DGV_Employees;
     }
 }
 

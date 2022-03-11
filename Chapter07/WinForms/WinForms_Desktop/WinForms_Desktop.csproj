@@ -59,13 +59,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\EmployeeContext.cs" />
-    <Compile Include="Data\InitialSeed.cs" />
-    <Compile Include="EmployeesDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmployeesDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +69,8 @@
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\EmployeeFaker.cs" />
     <Compile Include="Model\Gender.cs" />
+    <Compile Include="Data\IEmployeeRepository.cs" />
+    <Compile Include="Data\InMemoryEmployeeRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -90,17 +85,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="EmployeesDataSet.xsc">
-      <DependentUpon>EmployeesDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="EmployeesDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>EmployeesDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="EmployeesDataSet.xss">
-      <DependentUpon>EmployeesDataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

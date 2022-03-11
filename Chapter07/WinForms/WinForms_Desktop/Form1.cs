@@ -12,12 +12,17 @@ namespace WinForms_Desktop
 {
     public partial class Form1 : Form
     {
-        private EmployeeContext context;
         private Employee selectedEmployee;
+        private IEmployeeRepository repository;
+        private BindingSource source;
 
         public Form1()
         {
+            this.repository = new InMemoryEmployeeRepository();
+            this.source = new BindingSource();
+
             InitializeComponent();
+            DataSourceRefresh();
             cb_gender.DataSource = Enum.GetValues(typeof(Gender));
             tbl_firstname.Label = "First name:";
             tbl_firstname.TabIndex = 0;
@@ -44,15 +49,12 @@ namespace WinForms_Desktop
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            context = new EmployeeContext();
-            employeeBindingSource.DataSource = context.Employees.Local.ToBindingList();
-            employeeDataGridView.Refresh();
+            //DGV_Employees.Refresh();
         }
 
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
-            context.Dispose();
         }
 
         private void employeeContextBindingSource_CurrentChanged(object sender, EventArgs e)
@@ -62,28 +64,34 @@ namespace WinForms_Desktop
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //making sure the database is already created
-            while (!context.Database.Exists())
+        }
+
+        private void DataSourceRefresh()
+        {
+            DGV_Employees.DataSource = null;
+
+            this.source.Clear();
+            foreach (var employee in repository.GetAllEmployees())
             {
-                Task.Delay(2000);
+                this.source.Add(employee);
             }
 
-            employeesTableAdapter.Fill(employeesDataSet.Employees);
+            DGV_Employees.DataSource = this.source;
         }
 
         private async void employeeDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) // sorting returns -1
             {
-                var value = employeeDataGridView.Rows[e.RowIndex].Cells[0].Value;
-                selectedEmployee = await context.Employees.FindAsync(value);
+                var value = (int) DGV_Employees.Rows[e.RowIndex].Cells[0].Value;
+                selectedEmployee = this.repository.GetById(value);
                 LoadEmployee();
             }
         }
 
         private void employeeDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (employeeDataGridView.Columns[e.ColumnIndex].Name.Equals("genderDataGridViewTextBoxColumn"))
+            if (DGV_Employees.Columns[e.ColumnIndex].Name.Equals("genderDataGridViewTextBoxColumn"))
             {
                 var enumValue = (Gender)e.Value;
                 e.Value = Enum.GetName(typeof(Gender), enumValue);
@@ -101,7 +109,7 @@ namespace WinForms_Desktop
                 tbl_role.Text = selectedEmployee.Role;
                 mtbl_hiringdate.Text = selectedEmployee.DateOfHire.ToShortDateString();
                 mtbl_salary.Text = selectedEmployee.Salary.ToString();
-                tbl_address.Text = selectedEmployee.Address;
+                tbl_address.Text = selectedEmployee.Address;                                                                                                                                 
                 tbl_city.Text = selectedEmployee.City;
                 tbl_zip.Text = selectedEmployee.ZipCode;
             //}
@@ -154,9 +162,9 @@ namespace WinForms_Desktop
             {
                 if (StoreEmployee())
                 {
-                    this.context.Employees.AddOrUpdate(selectedEmployee);
-                    await this.context.SaveChangesAsync();
-                    this.employeeDataGridView.Refresh();
+                    this.repository.AddOrUpdate(selectedEmployee);
+                    DataSourceRefresh();
+                    this.DGV_Employees.Refresh();
                 }
                 else MessageBox.Show("Please correct errors before saving");
             }
