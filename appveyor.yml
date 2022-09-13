@@ -1,0 +1,69 @@
+version: 0.{build}
+
+notifications:
+  - provider: Email
+    to:
+      - luncliff@gmail.com
+
+branches:
+  except:
+    - gh-pages
+    - docs/*
+
+shallow_clone: true
+clone_depth: 1
+
+image: Visual Studio 2022
+
+platform:
+  - x64
+
+configuration:
+  - debug
+  # - release
+
+cache:
+  # - c:/tools/vcpkg/downloads
+  - C:/Program Files (x86)/Microsoft SDKs/NuGetPackages
+  - C:/Program Files/dotnet/library-packs
+
+environment:
+  # global:
+  #   VCPKG_ROOT: c:/tools/vcpkg
+  matrix: 
+    - folder: Chapter01/01-WinUI-Packaged
+      sln: 01-WinUI-Packaged.sln
+    - folder: Chapter01/02-WinUI-Unpackaged
+      sln: 02-WinUI-Unpackaged.sln
+    - folder: Chapter02/01-PropertiesEvents
+      sln: PropertiesEvents.sln
+    - folder: Chapter02/02-Resources
+      sln: Resources.sln
+    - folder: Chapter02/07-DataBinding
+      sln: DataBinding.sln
+    - folder: Chapter03/02-Dispatcher
+      sln: Dispatcher.sln
+    - folder: Chapter03/03-Localization
+      sln: Localization.sln
+    - folder: Chapter04/01-Power
+      sln: Power.sln
+    - folder: Chapter04/02-Activation
+      sln: Activation.sln
+    - folder: Chapter04/04-Windowing
+      sln: 04-Windowing.sln
+    - folder: Chapter08/01-LocationServices
+      sln: LocationServices.sln
+    - folder: Chapter08/03-Files
+      sln: Files.sln
+    - folder: Chapter09/01-Notifications
+      sln: Notifications.sln
+    - folder: Chapter10/01-ImageRecognition
+      sln: ImageRecognition.sln
+
+install:
+  - ps: nuget restore "${env:folder}/${env:sln}"
+
+build:
+  project: $(folder)/$(sln)
+  parallel: true
+  verbosity: minimal # detailed
