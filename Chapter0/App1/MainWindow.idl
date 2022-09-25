@@ -1,9 +1,13 @@
 namespace App1
 {
-    [default_interface]
-    runtimeclass MainWindow : Microsoft.UI.Xaml.Window
-    {
-        MainWindow();
-        Int32 MyProperty;
-    }
+	[default_interface]
+	runtimeclass MainWindow : Microsoft.UI.Xaml.Window
+	{
+		MainWindow();
+		Int32 MyProperty;
+
+		Windows.Foundation.IAsyncAction DoAsync();
+
+		// todo: event
+	}
 }

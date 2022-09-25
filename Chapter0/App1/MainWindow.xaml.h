@@ -2,22 +2,20 @@
 
 #include "MainWindow.g.h"
 
-namespace winrt::App1::implementation
-{
-    struct MainWindow : MainWindowT<MainWindow>
-    {
-        MainWindow();
+namespace winrt::App1::implementation {
 
-        int32_t MyProperty();
-        void MyProperty(int32_t value);
+struct MainWindow : MainWindowT<MainWindow> {
+    MainWindow();
 
-        void myButton_Click(Windows::Foundation::IInspectable const& sender, Microsoft::UI::Xaml::RoutedEventArgs const& args);
-    };
-}
+    int32_t MyProperty();
+    void MyProperty(int32_t value);
+    Windows::Foundation::IAsyncAction DoAsync();
 
-namespace winrt::App1::factory_implementation
-{
-    struct MainWindow : MainWindowT<MainWindow, implementation::MainWindow>
-    {
-    };
-}
+    void myButton_Click(Windows::Foundation::IInspectable const& sender,
+                        Microsoft::UI::Xaml::RoutedEventArgs const& args);
+};
+} // namespace winrt::App1::implementation
+
+namespace winrt::App1::factory_implementation {
+struct MainWindow : MainWindowT<MainWindow, implementation::MainWindow> {};
+} // namespace winrt::App1::factory_implementation

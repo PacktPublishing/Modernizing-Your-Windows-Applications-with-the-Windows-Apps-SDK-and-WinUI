@@ -23,13 +23,15 @@ configuration:
   # - release
 
 cache:
-  # - c:/tools/vcpkg/downloads
+  - c:/tools/vcpkg/downloads
+  - c:/tools/vcpkg/caches
   - C:/Program Files (x86)/Microsoft SDKs/NuGetPackages
   - C:/Program Files/dotnet/library-packs
 
 environment:
-  # global:
-  #   VCPKG_ROOT: c:/tools/vcpkg
+  global:
+    VCPKG_ROOT: c:/tools/vcpkg
+    VCPKG_DEFAULT_BINARY_CACHE: c:/tools/vcpkg/caches
   matrix:
     - folder: Chapter0
       sln: Chapter0.sln
@@ -64,6 +66,10 @@ environment:
 
 install:
   - ps: nuget restore "${env:folder}/${env:sln}"
+
+before_build:
+  - ps: vcpkg install --triplet=x64-windows spdlog
+  - ps: vcpkg integrate project
 
 build:
   project: $(folder)/$(sln)
