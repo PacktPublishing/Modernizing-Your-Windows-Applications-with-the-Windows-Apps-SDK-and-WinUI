@@ -30,7 +30,9 @@ cache:
 environment:
   # global:
   #   VCPKG_ROOT: c:/tools/vcpkg
-  matrix: 
+  matrix:
+    - folder: Chapter0
+      sln: Chapter0.sln
     - folder: Chapter01/01-WinUI-Packaged
       sln: 01-WinUI-Packaged.sln
     - folder: Chapter01/02-WinUI-Unpackaged
