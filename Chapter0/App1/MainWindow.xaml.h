@@ -5,6 +5,10 @@
 namespace winrt::App1::implementation {
 
 struct MainWindow : MainWindowT<MainWindow> {
+  private:
+    HWND hwnd = nullptr;
+
+  public:
     MainWindow();
 
     int32_t MyProperty();

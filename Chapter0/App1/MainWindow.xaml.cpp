@@ -1,5 +1,7 @@
 ﻿#include "pch.h"
 
+#include <microsoft.ui.xaml.window.h>
+
 #include "MainWindow.xaml.h"
 #if __has_include("MainWindow.g.cpp")
 #include "MainWindow.g.cpp"
@@ -14,6 +16,12 @@ using namespace Microsoft::UI::Xaml;
 namespace winrt::App1::implementation {
 MainWindow::MainWindow() {
     InitializeComponent();
+
+    // see https://learn.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+    auto native = this->try_as<::IWindowNative>();
+    winrt::check_bool(native);
+    if (winrt::hresult hr = native->get_WindowHandle(&hwnd); FAILED(hr))
+        winrt::throw_hresult(hr);
 }
 
 int32_t MainWindow::MyProperty() {
