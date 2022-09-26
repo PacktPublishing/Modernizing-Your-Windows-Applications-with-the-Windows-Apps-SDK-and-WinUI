@@ -35,39 +35,40 @@ environment:
   matrix:
     - folder: Chapter0
       sln: Chapter0.sln
-    - folder: Chapter01/01-WinUI-Packaged
-      sln: 01-WinUI-Packaged.sln
-    - folder: Chapter01/02-WinUI-Unpackaged
-      sln: 02-WinUI-Unpackaged.sln
-    - folder: Chapter02/01-PropertiesEvents
-      sln: PropertiesEvents.sln
-    - folder: Chapter02/02-Resources
-      sln: Resources.sln
-    - folder: Chapter02/07-DataBinding
-      sln: DataBinding.sln
-    - folder: Chapter03/02-Dispatcher
-      sln: Dispatcher.sln
-    - folder: Chapter03/03-Localization
-      sln: Localization.sln
-    - folder: Chapter04/01-Power
-      sln: Power.sln
-    - folder: Chapter04/02-Activation
-      sln: Activation.sln
-    - folder: Chapter04/04-Windowing
-      sln: 04-Windowing.sln
-    - folder: Chapter08/01-LocationServices
-      sln: LocationServices.sln
-    - folder: Chapter08/03-Files
-      sln: Files.sln
-    - folder: Chapter09/01-Notifications
-      sln: Notifications.sln
-    - folder: Chapter10/01-ImageRecognition
-      sln: ImageRecognition.sln
+#     - folder: Chapter01/01-WinUI-Packaged
+#       sln: 01-WinUI-Packaged.sln
+#     - folder: Chapter01/02-WinUI-Unpackaged
+#       sln: 02-WinUI-Unpackaged.sln
+#     - folder: Chapter02/01-PropertiesEvents
+#       sln: PropertiesEvents.sln
+#     - folder: Chapter02/02-Resources
+#       sln: Resources.sln
+#     - folder: Chapter02/07-DataBinding
+#       sln: DataBinding.sln
+#     - folder: Chapter03/02-Dispatcher
+#       sln: Dispatcher.sln
+#     - folder: Chapter03/03-Localization
+#       sln: Localization.sln
+#     - folder: Chapter04/01-Power
+#       sln: Power.sln
+#     - folder: Chapter04/02-Activation
+#       sln: Activation.sln
+#     - folder: Chapter04/04-Windowing
+#       sln: 04-Windowing.sln
+#     - folder: Chapter08/01-LocationServices
+#       sln: LocationServices.sln
+#     - folder: Chapter08/03-Files
+#       sln: Files.sln
+#     - folder: Chapter09/01-Notifications
+#       sln: Notifications.sln
+#     - folder: Chapter10/01-ImageRecognition
+#       sln: ImageRecognition.sln
 
 install:
   - ps: nuget restore "${env:folder}/${env:sln}"
 
 before_build:
+  - ps: New-Item -Type Directory -Force -Path "${env:VCPKG_DEFAULT_BINARY_CACHE}"
   - ps: vcpkg install --triplet=x64-windows spdlog
   - ps: vcpkg integrate project
 
