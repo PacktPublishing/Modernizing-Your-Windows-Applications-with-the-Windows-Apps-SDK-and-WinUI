@@ -15,7 +15,7 @@
       have a name that matches the .winmd
     -->
     <TargetName>$(RootNamespace)</TargetName>
-    <DefaultLanguage>en-US</DefaultLanguage>
+    <DefaultLanguage>ko-kr</DefaultLanguage>
     <MinimumVisualStudioVersion>16.0</MinimumVisualStudioVersion>
     <AppContainerApplication>false</AppContainerApplication>
     <AppxPackage>true</AppxPackage>

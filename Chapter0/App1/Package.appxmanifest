@@ -9,11 +9,11 @@
   <Identity
     Name="7ad6b09b-d6af-4f47-ae99-ab08fdb82ca5"
     Publisher="CN=luncl"
-    Version="1.0.0.0" />
+    Version="0.2239.0.0" />
 
   <Properties>
     <DisplayName>App1</DisplayName>
-    <PublisherDisplayName>luncl</PublisherDisplayName>
+    <PublisherDisplayName>luncliff</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -38,11 +38,23 @@
         Square44x44Logo="Assets\Square44x44Logo.png">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="landscape"/>
+          <uap:Rotation Preference="portrait"/>
+          <uap:Rotation Preference="landscapeFlipped"/>
+          <uap:Rotation Preference="portraitFlipped"/></uap:InitialRotationPreference>
       </uap:VisualElements>
     </Application>
   </Applications>
 
   <Capabilities>
     <rescap:Capability Name="runFullTrust" />
+    <Capability Name="internetClientServer"/>
+    <Capability Name="internetClient"/>
+    <uap:Capability Name="videosLibrary"/>
+    <uap:Capability Name="musicLibrary"/>
+    <DeviceCapability Name="webcam"/>
+    <DeviceCapability Name="location"/>
+    <DeviceCapability Name="microphone"/>
   </Capabilities>
 </Package>
