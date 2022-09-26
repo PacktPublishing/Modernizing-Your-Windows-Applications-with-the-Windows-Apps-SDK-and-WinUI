@@ -9,6 +9,8 @@ struct App : AppT<App> {
     void OnLaunched(Microsoft::UI::Xaml::LaunchActivatedEventArgs const&);
 
   private:
-    winrt::Microsoft::UI::Xaml::Window window{nullptr};
+    winrt::Microsoft::UI::Xaml::Window window = nullptr;
+    winrt::Windows::System::DispatcherQueueController controller = nullptr;
+    winrt::Windows::System::DispatcherQueue queue = nullptr;
 };
 } // namespace winrt::App1::implementation

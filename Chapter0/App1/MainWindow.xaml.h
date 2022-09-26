@@ -13,6 +13,7 @@ struct MainWindow : MainWindowT<MainWindow> {
 
     int32_t MyProperty();
     void MyProperty(int32_t value);
+
     Windows::Foundation::IAsyncAction DoAsync();
 
     void myButton_Click(Windows::Foundation::IInspectable const& sender,
